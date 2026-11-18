@@ -231,3 +231,8 @@ class HTMLVisualizer:
                 f.write(html_content)
 
         return html_content
+
+    @classmethod
+    def export_html(cls, recording: FlightRecording, output_path: Union[str, Path]) -> str:
+        """Alias for render with output_path."""
+        return cls.render(recording, output_path=output_path)
