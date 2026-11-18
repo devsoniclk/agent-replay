@@ -1,0 +1,65 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-replay"
+version = "0.1.0"
+description = "Deterministic Time-Travel Debugger, Flight Recorder & Counterfactual Branching Engine for Autonomous AI Agents"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [
+    { name = "Lakshitha Dananjaya", email = "dananjayarox01@gmail.com" }
+]
+keywords = [
+    "ai-agents",
+    "time-travel-debugging",
+    "deterministic-replay",
+    "counterfactual-analysis",
+    "flight-recorder",
+    "llm-debugging",
+    "mcp",
+    "autonomous-agents"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Debuggers",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence"
+]
+
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-cov>=4.0.0"
+]
+
+[project.scripts]
+agent-replay = "agent_replay.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/devsoniclk/agent-replay"
+Repository = "https://github.com/devsoniclk/agent-replay"
+Issues = "https://github.com/devsoniclk/agent-replay/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["agent_replay*"]
+
+[tool.setuptools.package-data]
+agent_replay = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --strict-markers"
